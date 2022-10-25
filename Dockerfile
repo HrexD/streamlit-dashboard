@@ -2,18 +2,17 @@ FROM python:3.10.7
 
 WORKDIR /app
 
+COPY . .
+
 RUN apt-get update && apt-get install -y \
     build-essential \
     software-properties-common \
-    git \
-    && rm -rf /var/lib/apt/lists/* 
+    git  
 
-RUN git clone https://github.com/HrexD/DataAnalyse/tree/main/StreamlitProject
+RUN pip install -r requirements.txt
 
 EXPOSE 8501
 
-RUN pip3 install -r requirement.txt
-
-ENTRYPOINT [ "streamlit", "run", "streamlit.py" ]
+ENTRYPOINT [ "streamlit", "run", "streamlit.py", "--server.port=8501" "--server.adress=0.0.0.0" ]
 
 CMD streamlit run streamlit.py
