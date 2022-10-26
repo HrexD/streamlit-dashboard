@@ -12,7 +12,7 @@ st.set_page_config(page_title="Mon Dashboard",
                    page_icon=":bar_chart:",
                    layout="wide")
 
-df = pd.read_csv(r'.\Twitch_lol_data.csv', encoding='cp1252')
+df = pd.read_csv(r'Twitch_lol_data.csv', encoding='cp1252')
 
 # ----- SIDEBAR -----
 st.sidebar.header("Filtrer les jeux:")
@@ -104,12 +104,3 @@ fig_product_month.update_layout(
 left_column, right_column = st.columns(2)
 left_column.plotly_chart(fig_product, use_container_width=True)
 right_column.plotly_chart(fig_product_month, use_container_width=True)
-
-hide_st_style = """
-    <style>
-    footer {visibiliry:hidden;}
-    header {visibiliry:hidden;}
-    </style>
-    """
-
-st.markdown(hide_st_style, unsafe_allow_html=True)
