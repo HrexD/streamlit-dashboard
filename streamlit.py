@@ -15,21 +15,21 @@ st.set_page_config(page_title="Mon Dashboard",
 df = pd.read_csv(r'Twitch_lol_data.csv', encoding='cp1252')
 
 # ----- SIDEBAR -----
-st.sidebar.header("Filtrer les jeux:")
+st.sidebar.header("Filtrer les jeux (Laissez au moins une donnée):")
 Game = st.sidebar.multiselect(
     "Choisissez un jeu :",
     options=df['Game'].unique(),
     default=df["Game"].unique()
 )
 
-st.sidebar.header("Filtrer l'année:")
+st.sidebar.header("Filtrer l'année (Laissez au moins une donnée):")
 Year = st.sidebar.multiselect(
     "Choisissez un jeu :",
     options=df['Year'].unique(),
     default=df["Year"].unique()
 )
 
-st.sidebar.header("Filtrer le mois:")
+st.sidebar.header("Filtrer le mois (Laissez au moins une donnée):")
 Month = st.sidebar.multiselect(
     "Choisissez un jeu :",
     options=df['Month'].unique(),
