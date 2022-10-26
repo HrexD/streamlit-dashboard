@@ -68,7 +68,7 @@ total_by_games = (
     df_selection.groupby(by=['Game']).sum()[
         ['Hours_watched']].sort_values(by=['Hours_watched'])
 )
-fig_product = px.bar(
+fig_product = px.funnel(
     total_by_games,
     x="Hours_watched",
     y=total_by_games.index,
@@ -86,7 +86,7 @@ fig_product.update_layout(
 
 viewer_by_month = (df_selection.groupby(
     by=['Month']).sum()[['Avg_viewers']].sort_values(by=['Avg_viewers']))
-fig_product_month = px.bar(
+fig_product_month = px.area(
     viewer_by_month,
     x=viewer_by_month.index,
     y="Avg_viewers",
